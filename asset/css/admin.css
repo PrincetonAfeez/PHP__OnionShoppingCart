@@ -1,0 +1,172 @@
+/*************************** Top Nav Bar Setting *************************/
+/*************************************************************************/
+.page-content.admin .navbar-inverse {
+    background-color: #000;
+    border-color: #222;
+    color:#fff;
+}
+.page-content.admin .navbar-inverse .navbar-nav>li>a {
+	color:#fff;
+}
+
+
+/************************* Page Container Setting ************************/
+/*************************************************************************/
+.page-content.admin .container.theme-showcase {
+	margin-top:58px;
+}
+
+/***************************** Table Setting *****************************/
+/*************************************************************************/
+.page-content.admin table{
+	width:100%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(1){
+	width:5%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(2){
+	width:15%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(3){
+	width:5%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(4){
+	width:40%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(5){
+	width:15%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(6){
+	width:15%;
+}
+.page-content.admin table#vendor-list tr>td:nth-child(7){
+	width:5%;
+}
+.page-content.admin form.searchbar{
+	margin-bottom:1rem;
+	width:50%;
+}
+.page-content.admin form.searchbar button{
+	margin-top:-1px;
+}
+.page-content.admin button.action-sortby {
+	width:100%;
+	display:block;
+}
+.page-content.admin .table-row-odd {
+	background-color:#fdfb99;	
+}
+.page-content.admin .table-row-odd:hover {
+	background-color:#88fb57;	
+}
+.page-content.admin .table-row-even {
+	background-color:#dbf4f2;	
+}
+.page-content.admin .table-row-even:hover {
+	background-color:#88fb57;	
+}
+.page-content.admin .table-row-odd .btn.btn-default {
+	background-color:transparent;	
+}
+.page-content.admin .table-row-even .btn.btn-default {
+	background-color:transparent;	
+}
+.page-content.admin tr.bulk-control.checked {
+	font-weight:bold;	
+}
+.page-content.admin #btn_bulkedit_brand {
+	cursor:pointer;
+}
+#vendor-list table{
+	margin-top:1rem;
+}
+
+
+/****************************** Well Setting *****************************/
+/*************************************************************************/
+.well .well-heading {
+	font-size:1.5rem;
+	font-weight:bold;
+}
+
+
+/*************************** Edit Form Setting ***************************/
+/*************************************************************************/
+.page-content.admin form.edit-form .input-group{
+	margin:0.8rem 0;
+}
+.page-content.admin form.edit-form .input-group.submit{
+    position: fixed;
+    z-index: 2000;
+    top: 4px;
+    right: 15px;
+    width: 50px;
+    text-align: right;
+}
+.page-content.admin form.edit-form #category-list select>option:first-child{
+    font-style: italic;
+    color:#ccc;
+}
+.page-content.admin form.edit-form .glyphicon-ok-circle{
+	color:green;
+}
+.page-content.admin form.edit-form .glyphicon-remove-circle{
+	color:red;
+}
+.page-content.admin form.edit-form .no-gutter div{
+	margin-left:0;
+	margin-right:0;
+	padding-left:0;
+	padding-right:0;
+}
+.page-content.admin form.edit-form #variation-list .add-new-variation-input .input-group-addon{
+	border:1px solid #ccc;
+	border-radius:0;
+}
+.page-content.admin form.edit-form #variation-list .add-new-variation-input input{
+	border:1px solid #ccc;
+	border-radius:0;
+}
+
+
+/************************* Add Vendor Form Setting ***********************/
+/*************************************************************************/
+form#add-vendor-form .input-group-addon{
+	width:12em;
+}
+
+
+/************************* Image selector Setting ************************/
+/*************************************************************************/
+#selectImageModal .modal-dialog {
+	width:90%;
+}
+#selectImageModal .modal-body button {
+	height:150px;
+	width:150px;
+	margin:5px;
+	padding:5px;
+	background-color:#fff;
+}
+#selectImageModal .modal-body img {
+	max-height:140px;
+	max-width:140px;
+}
+#image-list #btn_change_feature_image {
+	cursor:pointer;
+}
+
+/************************** Result Madal Setting *************************/
+/*************************************************************************/
+#AjaxResultModal .modal-header .resultIcon.glyphicon-ok-circle{
+	color:green;
+}
+#AjaxResultModal .modal-header .resultIcon.glyphicon-remove-circle{
+	color:red;
+}
+#AjaxResultModal .modal-body.success{
+	color:green;
+}
+#AjaxResultModal .modal-body.error{
+	color:red;
+}
