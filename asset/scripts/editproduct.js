@@ -259,6 +259,7 @@ $(function(){
 						$("#EditSellingPriceForm input[name=end_date]").val($(this).closest('tr').children("td:nth-child(11)").text());
 					});
 				} else {
+					$('#selling-price-list button#add-supplier').hide();
 					$("#selling-price-list .add-sellingprice-panel").show();
 				}
 			},
