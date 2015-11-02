@@ -96,17 +96,7 @@ $(function(){
 	});
 	/********************* /Control brand select menu **********************/
 
-	
-	/********************* Control variation add button ***********************/
-	$('#variation-list .add-new-variation-input').hide();
-
-	$('#variation-list button#add-variation').on("click",function(){
-		$(this).hide();
-		$('#variation-list .add-new-variation-input').show();
-	});
-	/********************* /Control variation add button **********************/
-
-	
+		
 	/********************* Control basic information submit event **********************/
 	$('.edit-form #basic-product-information input[name=submit]').on("click",function(e){
 		e.preventDefault();
@@ -185,6 +175,102 @@ $(function(){
 		});
 	});
 	/******************** Control category list *********************/
+
+	
+	/******************** Control variation *********************/
+	$('#variation-list .add-new-variation-input').hide();
+
+	$('#variation-list button#add-variation').on("click",function(){
+		$(this).hide();
+		$('#variation-list .add-new-variation-input').show();
+	});
+	
+	function getVariationOptions(index){
+		$.ajax({
+			url: "../api/get-variation-options",
+			type: "POST",
+			data: {
+				variation_ref: index
+			},
+			dataType: "json",
+			success: function(response, status, xhr) {
+				var data = $.parseJSON(xhr.responseText);
+				if (data.result == true) {
+					$('#variation-list .variation-option-box textarea[name=options]').val(data.options);
+				} else {
+					setModal("Error on saving data.<p>If it still occurs after retrying, please report to the website administration.",
+							 false);
+					$('#AjaxResultModal').modal();
+				}
+			},
+			error: function() {
+				console.log( "ERROR ON LOADING VARIATION LIST" );
+			}
+		});
+	}
+	
+	$(function(){
+		$.ajax({
+			url: "../api/get-variation-list",
+			type: "POST",
+			data: {
+			},
+			dataType: "json",
+			success: function(response, status, xhr) {
+				var data = $.parseJSON(xhr.responseText);
+				if (data.result == true) {
+					if (data.variation_list.length > 0){
+						$.each(data.variation_list, function(key, value) {
+							$('#variation-list .variation-option-box select').append('<option value="'+value.variation_ref+'">'+value.name+'</option>');
+						});
+
+						$('#variation-list .variation-option-box select option').on('click',function(e){
+							if (($(this).prop("selected") == true) && ($(this).val()>0)){
+								getVariationOptions($(this).val());
+							} else {
+								$('#variation-list .variation-option-box textarea[name=options]').val('');
+							}
+						});
+					}
+				} else {
+					setModal("Error on saving data.<p>If it still occurs after retrying, please report to the website administration.",
+							 false);
+					$('#AjaxResultModal').modal();
+				}
+			},
+			error: function() {
+				console.log( "ERROR ON LOADING VARIATION LIST" );
+			}
+		});
+	});
+	
+	$('#variation-list input[name=submit-add-variation]').on('click',function(e){
+		e.preventDefault();
+		$.ajax({
+			url: "../api/append-variation",
+			type: "POST",
+			data: {
+				product_id:$(".edit-form input[name=product_id]").val(),
+				variation_group:$(".edit-form #variation-list input[name=newVariation]").val(),
+				variation_options:$(".edit-form #variation-list input[name=newVariationOptions]").val()
+			},
+			dataType: "json",
+			success: function(response, status, xhr) {
+				var data = $.parseJSON(xhr.responseText);
+				if (data.result == true) {
+					setModal("Append variation OK", true);
+				} else {
+					setModal("Error on saving data.<p>If it still occurs after retrying, please report to the website administration.",
+							 false);
+				}
+				$('#AjaxResultModal').modal();
+			},
+			error: function() {
+				console.log( "ERROR ON LOADING PRICE TABLE" );
+			}
+		});
+	});
+	/******************* /Control variation *********************/
 
 	
 	/******************** Control Selling price list *********************/

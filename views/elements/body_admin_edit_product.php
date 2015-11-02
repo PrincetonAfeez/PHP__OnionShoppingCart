@@ -140,15 +140,31 @@ $model['vendorManager'] = new VendorManager($db);
 
 	<div id="variation-list" class="well">
 		<div class="well-heading">Variation
-			<button type="button" id="add-variation" class="btn btn-default">Create variation</button></div>
+			<button type="button" id="add-variation" class="btn btn-default">Create variation</button>
+		</div>
+		<div class="variation-option-box row">
+			<div class="col-xs-5">
+				<select multiple name="variation_ref_id" size="5" class="form-control">
+					<option>none</option>
+				</select>
+			</div>
+			<div class="col-xs-7">
+				<textarea name="options" rows="5" class="form-control"></textarea>
+			</div>
+		</div>
 		<div class="add-new-variation-input input-group no-gutter">
 			<div class="col-xs-3">
 				<span class="input-group-addon" id="basic-addon3">Name:</span>
 				<input type="text" name="newVariation" value="" class="form-control" />
 			</div>
 			<div class="col-xs-9">
-				<span class="input-group-addon" id="basic-addon3">Options:</span>
+				<span class="input-group-addon" id="basic-addon3">Options (seperated with comma ','):</span>
 				<input type="text" name="newVariationOptions" value="" class="form-control" />
+			</div>
+		</div>
+		<div class="add-new-variation-input input-group">
+			<div>
+				<input type="button" name="submit-add-variation" value="Add variation" class="form-control btn-btn-default" />
 			</div>
 		</div>
 	</div>

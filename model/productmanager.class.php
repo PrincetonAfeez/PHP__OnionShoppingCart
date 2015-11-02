@@ -16,6 +16,26 @@ class ProductManager extends Product {
 	public function getProductList(){
 		return $this->productList;
 	}
+
+	public function getVariationRefMax(){
+		$sql = "SELECT MAX(variation_ref) FROM variation";
+		$result = $this->db->fetchone($sql);
+		if ($result[0] == NULL) {
+			return 0;
+		} else {
+			return $result[0];
+		}
+	}
+	
+	public function getVariationList(){
+		$sql = "SELECT variation_ref, name FROM variation GROUP BY variation_ref ORDER BY name";
+		return $this->db->fetchall($sql);
+	}
+	
+	public function getVariationOptions($refId){
+		$sql = "SELECT `option` FROM variation WHERE variation_ref=".$refId;
+		return $this->db->fetchall($sql);
+	}
 	
 	private function loadProductList($order='ASC'){
 		/* action: sorting */

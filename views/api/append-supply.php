@@ -20,7 +20,7 @@ $sql .= "VALUES (".
 try{
 	//throw new Exception($sql);
 	$result = array(
-					"result"=>$db->update($sql)
+					"result"=>$db->insert($sql)
 				);
 	echo json_encode($result);
 } catch (Exception $e) {
